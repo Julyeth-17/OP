@@ -14,5 +14,5 @@ app.use ('/api/v1', require('./routes/routes'))
 // se define rutas o endpoints, se llama de las librerias el get.
 
 app.listen(3000, () => {
-    console.log('La aplicacion se esta ejecutando en http://localhost:3000')
+    console.log('La aplicacion se esta ejecutando')
 })

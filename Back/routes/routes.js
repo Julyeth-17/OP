@@ -11,7 +11,9 @@ router.delete('/eliminar-personaje/:id', personajesController.eliminarPersonaje)
 
 router.get('/obtener-usuarios/', registroController.obtenerTodosLosUsuarios)
 router.get('/obtener-usuario/:id', registroController.obtenerUnSoloUsuario),
-router.post('/crear-usuario', registroController.crearUsuario)
+router.post('/crear-usuario', registroController.crearUsuario),
+router.put('/actualizar-usuario/:id', registroController.actualizarUsuario),
+router.delete('/eliminar-usuario/:id', registroController.eliminarUsuario)
 
 
 module.exports = router
