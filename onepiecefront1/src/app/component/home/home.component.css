@@ -1,0 +1,59 @@
+.bg-general-islaonepiece {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    padding: 30px 0;
+}
+
+.pinchekrrusel {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    border-radius: 25px;
+    margin: 60px 30px;
+    width: 95%;
+    height: auto;
+    background-color: aliceblue;
+    padding: 15px;
+    border: solid 1.5px black;
+}
+
+.carousel-inner img{
+    border: 1.5px solid black;
+    border-radius: 25px;
+    height: auto !important;
+}
+
+.cajitaTexto {
+    border: solid 1.5px black;
+    border-radius: 25px;
+    padding: 10px 10px;
+    margin-left: 30px;
+    height: auto;
+    background-color: aliceblue;
+    opacity: 90%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap !important;
+}
+
+
+.col-5 {
+    flex: 0 0 auto;
+    width: 35%;
+}
+
+.cajitaTexto {
+    font-family: 'twoPiece';
+    text-align: center;
+    font-size: 30px;
+}
+
+p
+{
+    font-family: 'navText';
+    font-size: 20px;
+}

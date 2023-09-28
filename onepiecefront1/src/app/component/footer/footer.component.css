@@ -1,0 +1,7 @@
+.piesito{
+    background-color: #F0F8FF;
+    opacity: 80%;
+    border-block-start: 1.5px solid black !important;
+    font-family: "navText";
+    font-size: 15px;
+}

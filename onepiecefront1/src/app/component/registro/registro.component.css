@@ -1,0 +1,100 @@
+/*css caja principal */
+.caja1 {
+    align-items: center;
+    background-color: aliceblue;
+    border-radius: 20px;
+    border: solid 1.5px black;
+    margin: 0 auto;
+    max-width: 400px;
+    opacity: 90%;
+    padding: 1rem 1rem;
+}
+
+/* css para inputs de usuario y password */
+
+.input {
+    font-family: 'twopiece';
+    margin: 1em 0 1em 0;
+    position: relative;
+}
+
+.input input {
+    font-size: 100%;
+    padding: 0.8em;
+    outline: none;
+    border: 1.5px solid black;
+
+    border-radius: 20px;
+    width: 100%;
+}
+
+.input label {
+    font-size: 100%;
+    position: absolute;
+    left: 0;
+    padding: 0.8em;
+    margin-left: 0.5em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: #212121
+}
+
+.input :is(input:focus, input:valid)~label {
+    transform: translateY(-50%) scale(.9);
+    border-radius: 40%;
+    margin: 0em;
+    margin-left: 1.3em;
+    padding: 0.4em;
+    color: rgb(255, 255, 255);
+    background-color: #212121;
+    ;
+}
+
+/* css para btn envio inicio sesion */
+
+button {
+    --button_radius: 0.75em;
+    --button_color: rgb(255, 255, 255);
+    --button_outline_color: #000000;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+    font-family: 'twopiece';
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.btn button {
+    padding: 1rem 1rem;
+
+}
+
+.button_top {
+    display: block;
+    border: 1.5px solid black;
+    border-radius: var(--button_radius);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+}
+
+button:hover .button_top {
+    transform: translateY(-0.33em);
+}
+
+button:active .button_top {
+    transform: translateY(0);
+}
+
+/* css del texto */
+
+.texto {
+    font-family: 'twopiece';
+}
+
+.bg-general-islaonepiece {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    padding: 150px 0;
+}

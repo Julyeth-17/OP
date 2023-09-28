@@ -1,0 +1,13 @@
+.inicio,
+.registro,
+.iniciar-sesion{
+    font-family: "navText";
+    font-size: 20px;
+    gap: 1rem;
+}
+
+.fondoNav{
+    background-color: #F0F8FF;
+    opacity: 80%;
+    border-block-end: 1.5px solid black !important;
+}

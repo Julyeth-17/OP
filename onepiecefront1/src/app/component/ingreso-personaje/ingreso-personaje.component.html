@@ -1,0 +1,82 @@
+<section class="bg-general-islaonepiece" style="background: url(assets/img/fondo.jpg);">
+    <div class="caja1">
+        <form [formGroup]="ingresoPersonaje" (ngSubmit)="enviarFormulario()"
+            class="justify-content-center text-center row">
+            <h2 class="mb-2 texto">Ingresa el Personaje</h2>
+            <div class="input mb-4 col-6">
+                <input type="text" required="" autocomplete="off" formControlName="nombre">
+                <label for="nombre">NOMBRE</label>
+                <div *ngIf="ingresoPersonaje.get('nombre')!.hasError('required') && ingresoPersonaje.get('nombre')!.touched"
+                    class="fw-bold text-danger">Nombre Requerido</div>
+                <div *ngIf="ingresoPersonaje.get('nombre')!.hasError('pattern') && ingresoPersonaje.get('nombre')!.touched"
+                    class="fw-bold text-danger">Nombre Invalido</div>
+            </div>
+            <div class="input mb-4 col-6">
+                <input type="number" required="" autocomplete="off" formControlName="edad">
+                <label for="edad">EDAD</label>
+                <div *ngIf="ingresoPersonaje.get('edad')!.hasError('required') && ingresoPersonaje.get('edad')!.touched"
+                    class="fw-bold text-danger">Edad Requerida</div>
+                <div *ngIf="ingresoPersonaje.get('edad')!.hasError('pattern') && ingresoPersonaje.get('edad')!.touched"
+                    class="fw-bold text-danger">Edad Invalida</div>
+            </div>
+            <div class="input mb-4 col-6">
+                <input type="text" required="" autocomplete="off" formControlName="tripulacion">
+                <label for="tripulacion">TRIPULACIÓN</label>
+                <div *ngIf="ingresoPersonaje.get('tripulacion')!.hasError('required') && ingresoPersonaje.get('tripulacion')!.touched"
+                    class="fw-bold text-danger">Tripulación Requerida</div>
+                <div *ngIf="ingresoPersonaje.get('tripulacion')!.hasError('pattern') && ingresoPersonaje.get('tripulacion')!.touched"
+                    class="fw-bold text-danger">Tripulación Invalida</div>
+            </div>
+            <div class="input mb-4 col-6">
+                <input type="text" required="" autocomplete="off" formControlName="rol">
+                <label for="rol">ROL</label>
+                <div *ngIf="ingresoPersonaje.get('rol')!.hasError('required') && ingresoPersonaje.get('rol')!.touched"
+                    class="fw-bold text-danger">Rol Requerido</div>
+                <div *ngIf="ingresoPersonaje.get('rol')!.hasError('pattern') && ingresoPersonaje.get('rol')!.touched"
+                    class="fw-bold text-danger">Rol Invalido</div>
+            </div>
+            <div class="input mb-4 col-6">
+                <input type="text" required="" autocomplete="off" formControlName="nacionalidad">
+                <label for="nacionalidad">NACIONALIDAD</label>
+                <div *ngIf="ingresoPersonaje.get('nacionalidad')!.hasError('required') && ingresoPersonaje.get('nacionalidad')!.touched"
+                    class="fw-bold text-danger">Nacionalidad Requerida</div>
+                <div *ngIf="ingresoPersonaje.get('nacionalidad')!.hasError('pattern') && ingresoPersonaje.get('nacionalidad')!.touched"
+                    class="fw-bold text-danger">Nacionalidad Invalida</div>
+            </div>
+            <div class="input mb-4 col-6">
+                <input type="text" required="" autocomplete="off" formControlName="urlImagen">
+                <label for="urlImagen">URL IMAGEN</label>
+                <div *ngIf="ingresoPersonaje.get('urlImagen')!.hasError('required') && ingresoPersonaje.get('urlImagen')!.touched"
+                    class="fw-bold text-danger">Url de la imagen Requerida</div>
+                <div *ngIf="ingresoPersonaje.get('urlImagen')!.hasError('pattern') && ingresoPersonaje.get('urlImagen')!.touched"
+                    class="fw-bold text-danger">Url de la imagen invalida</div>
+            </div>
+            <button type="submit" [disabled]="ingresoPersonaje.invalid" class="mb-3">
+                <span class="button_top btn">ENVIAR</span>
+            </button>
+        </form>
+    </div>
+
+    <div class="caja2">
+        <div>
+            <h2 class="text-center mt-5 titulo">WANTED</h2>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+            <div class="col" *ngFor="let personaje of listaPersonajes">
+                <div class=" ">
+                    <div class="personajeWiki p-4 flex-column">
+                        <img class="w-100 caraPic" src="{{personaje.urlImagen}}">
+                        <span class="text-black">{{ personaje.nombre }}</span>
+                        <span class="text-black">{{ personaje.edad }}</span>
+                        <span class="text-black">{{ personaje.rol }}</span>
+                        <span class="text-black">{{ personaje.tripulacion}}</span>
+                        <span class="text-black">{{ personaje.nacionalidad }}</span>
+                        <button class="btnUpdate d-flex justify-content-end">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

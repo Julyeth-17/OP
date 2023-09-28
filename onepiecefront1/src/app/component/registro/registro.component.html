@@ -1,0 +1,49 @@
+<section class="bg-general-islaonepiece" style="background: url(assets/img/fondo.jpg);">
+    <div class="caja1">
+        <form [formGroup]="formularioRegistro" (ngSubmit)="enviarFormulario()"
+            class="justify-content-center text-center">
+            <h2 class="mb-4 texto">¡Se parte de la tripulación!</h2>
+            <div class="input mb-4">
+                <input type="text" required="" autocomplete="off" formControlName="correo">
+                <label for="correo">CORREO</label>
+                <div *ngIf="formularioRegistro.get('correo')!.hasError('required') && formularioRegistro.get('correo')!.touched"
+                    class="fw-bold text-danger">Correo Requerido</div>
+                <div *ngIf="formularioRegistro.get('correo')!.hasError('pattern') && formularioRegistro.get('correo')!.touched"
+                    class="fw-bold text-danger">Correo Invalido</div>
+            </div>
+
+            <div class="input mb-4">
+                <input type="text" required="" autocomplete="off" formControlName="usuario">
+                <label for="name">USUARIO</label>
+                <div *ngIf="formularioRegistro.get('usuario')!.hasError('required') && formularioRegistro.get('usuario')!.touched"
+                    class="fw-bold text-danger">Usuario Requerido</div>
+                <div *ngIf="formularioRegistro.get('usuario')!.hasError('pattern') && formularioRegistro.get('usuario')!.touched"
+                    class="fw-bold text-danger">Usuario Invalido</div>
+            </div>
+
+            <div class="input mb-4">
+                <input type="password" required="" autocomplete="off" formControlName="contraseña">
+                <label for="password">CONTRASEÑA</label>
+                <div *ngIf="formularioRegistro.get('contraseña')!.hasError('required') && formularioRegistro.get('contraseña')!.touched"
+                    class="fw-bold text-danger">Contraseña Requerida</div>
+                <div *ngIf="formularioRegistro.get('contraseña')!.hasError('pattern') && formularioRegistro.get('contraseña')!.touched"
+                    class="fw-bold text-danger">Contraseña Invalida</div>
+            </div>
+
+            <div class="input mb-4">
+                <input type="password" required="" autocomplete="off" id="txtPass2" #txtPass2 (keyup)="rectificarPass()">
+                <label for="password">RECTIFICAR CONTRASEÑA</label>
+            </div>
+
+            <div class="mb-3 d-none" #alertPass>
+                <div class="alert alert-danger" role="alert">
+                    Su contraseña no coincide
+                </div>
+            </div>
+
+            <button type="submit" [disabled]="formularioRegistro.invalid" class="mb-3">
+                <span class="button_top btn">ENVIAR</span>
+            </button>
+        </form>
+    </div>
+</section>
