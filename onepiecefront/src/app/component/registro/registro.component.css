@@ -12,6 +12,10 @@
 
 /* css para inputs de usuario y password */
 
+.alert{
+    font-family: 'twopiece';
+}
+
 .eyeicon{
     position: absolute;
     right: 15px;

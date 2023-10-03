@@ -19,20 +19,27 @@
                     class="fw-bold text-danger">Usuario Requerido</div>
                 <div *ngIf="formularioRegistro.get('usuario')!.hasError('pattern') && formularioRegistro.get('usuario')!.touched"
                     class="fw-bold text-danger">Usuario Invalido</div>
+                <div *ngIf="formularioRegistro.get('usuario')!.hasError('minlength') && formularioRegistro.get('usuario')!.touched"
+                    class="fw-bold text-danger">El usuario debe contener al menos 5 caracteres</div>
             </div>
 
             <div class="input mb-4">
-                <input [type]="changetype?'password':'text'" required="" autocomplete="off" formControlName="contraseña">
-                <span class="eyeicon" (click)="verpass()"><i [ngClass]="visible? 'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i></span>
+                <input [type]="changetype?'password':'text'" required="" autocomplete="off"
+                    formControlName="contraseña">
+                <span class="eyeicon" (click)="verpass()"><i
+                        [ngClass]="visible? 'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i></span>
                 <label for="password">CONTRASEÑA</label>
                 <div *ngIf="formularioRegistro.get('contraseña')!.hasError('required') && formularioRegistro.get('contraseña')!.touched"
                     class="fw-bold text-danger">Contraseña Requerida</div>
                 <div *ngIf="formularioRegistro.get('contraseña')!.hasError('pattern') && formularioRegistro.get('contraseña')!.touched"
                     class="fw-bold text-danger">Contraseña Invalida</div>
+                <div *ngIf="formularioRegistro.get('contraseña')!.hasError('minlength') && formularioRegistro.get('contraseña')!.touched"
+                    class="fw-bold text-danger">La contraseña debe contener al menos 8 caracteres</div>
             </div>
 
             <div class="input mb-4">
-                <input type="password" required="" autocomplete="off" id="txtPass2" #txtPass2 (keyup)="rectificarPass()">
+                <input type="password" required="" autocomplete="off" id="txtPass2" #txtPass2
+                    (keyup)="rectificarPass()">
                 <label for="password">RECTIFICAR CONTRASEÑA</label>
             </div>
 
