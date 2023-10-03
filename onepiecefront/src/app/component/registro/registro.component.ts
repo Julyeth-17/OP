@@ -1,9 +1,10 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, MinLengthValidator, Validators } from '@angular/forms';
 import { Registro } from 'src/app/models/registro';
 import { RegistroService } from 'src/app/services/registro.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { min } from 'rxjs';
 
 @Component({
     selector: 'app-registro',
@@ -15,6 +16,9 @@ export class RegistroComponent implements OnInit {
     @ViewChild('txtPass2') inputPass2!: ElementRef
     @ViewChild('alertPass') alertPass!: ElementRef
 
+    visible: boolean = true;
+    changetype: boolean = true;
+
     formularioRegistro: FormGroup
     regexAlfanum = /^[a-zA-Z0-9_.]+$/;
     regexCorreo = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
@@ -25,8 +29,8 @@ export class RegistroComponent implements OnInit {
     constructor(private fb: FormBuilder, private _registroService: RegistroService, private router: Router, private idUsuarioRuta: ActivatedRoute) {
         this.formularioRegistro = this.fb.group({
             correo: ['', [Validators.required, Validators.pattern(this.regexCorreo)]],
-            usuario: ['', [Validators.required, Validators.pattern(this.regexAlfanum)]],
-            contraseña: ['', [Validators.required, Validators.pattern(this.regexAlfanum)]]
+            usuario: ['', [Validators.required, Validators.pattern(this.regexAlfanum), Validators.minLength(5)]],
+            contraseña: ['', [Validators.required, Validators.pattern(this.regexAlfanum), Validators.minLength(8)]]
         })
 
         this.id = this.idUsuarioRuta.snapshot.paramMap.get('id')
@@ -41,6 +45,11 @@ export class RegistroComponent implements OnInit {
         }, error => {
             console.log('error')
         })
+    }
+
+    verpass(){
+        this.visible = !this.visible
+        this.changetype = !this.changetype
     }
 
     enviarFormulario() {

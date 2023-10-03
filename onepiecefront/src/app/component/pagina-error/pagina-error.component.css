@@ -1,0 +1,12 @@
+.bg-general-islaonepiece {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    padding: 100px 0;
+}
+
+h1{
+    font-family: 'twopiece';
+    margin: 0;
+}

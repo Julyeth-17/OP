@@ -8,6 +8,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class InicioSesionComponent {
 
+    visible: boolean = true;
+    changetype: boolean = true;
+
     formularioInicioSesion: FormGroup
     regexAlfanum = /[a-zA-Z0-9_.]+$/
 
@@ -17,6 +20,12 @@ export class InicioSesionComponent {
             contraseña: ['', [Validators.required, Validators.pattern(this.regexAlfanum)]]
         })
     }
+
+    verpass(){
+        this.visible = !this.visible
+        this.changetype = !this.changetype
+    }
+
     enviarFormulario() {
         console.log(this.formularioInicioSesion)
     };

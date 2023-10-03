@@ -32,7 +32,9 @@ export class ListaUsuariosComponent implements OnInit {
         Swal.fire({
             title: '¿Segura?',
             text: '¿Segura... segura?',
-            icon: 'warning',
+            imageUrl: 'https://media.tenor.com/FOoMkyH4oG8AAAAC/luffy-one-piece.gif',
+            imageWidth: 400,
+            imageHeight: 300,
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
@@ -41,8 +43,11 @@ export class ListaUsuariosComponent implements OnInit {
             if (result.isConfirmed) {
                 this._registroService.deleteUsuario(id).subscribe(data => {
                     Swal.fire({
-                        icon: 'success',
-                        title: 'Y se marchó, y a su barco le llamó Libertad'
+                        title: 'Y se marchó, y a su barco le llamó "libertad"',
+                        imageUrl: 'https://media.tenor.com/JYkfBdbO1JkAAAAC/one-piece-boat.gif',
+                        imageWidth: 400,
+                        imageHeight: 200,
+                        timer: 2000
                     })
                     this.traerUsuarios();
                 }, error => {

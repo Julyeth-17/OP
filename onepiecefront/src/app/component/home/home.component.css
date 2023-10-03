@@ -29,21 +29,10 @@
     border: solid 1.5px black;
     border-radius: 25px;
     padding: 10px 10px;
-    margin-left: 30px;
+    margin: 0 30px;
     height: auto;
     background-color: aliceblue;
     opacity: 90%;
-}
-
-.row {
-    display: flex;
-    flex-wrap: nowrap !important;
-}
-
-
-.col-5 {
-    flex: 0 0 auto;
-    width: 35%;
 }
 
 .cajitaTexto {

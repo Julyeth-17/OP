@@ -22,7 +22,8 @@
             </div>
 
             <div class="input mb-4">
-                <input type="password" required="" autocomplete="off" formControlName="contraseña">
+                <input [type]="changetype?'password':'text'" required="" autocomplete="off" formControlName="contraseña">
+                <span class="eyeicon" (click)="verpass()"><i [ngClass]="visible? 'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i></span>
                 <label for="password">CONTRASEÑA</label>
                 <div *ngIf="formularioRegistro.get('contraseña')!.hasError('required') && formularioRegistro.get('contraseña')!.touched"
                     class="fw-bold text-danger">Contraseña Requerida</div>

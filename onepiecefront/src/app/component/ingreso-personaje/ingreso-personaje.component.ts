@@ -19,7 +19,7 @@ export class IngresoPersonajeComponent implements OnInit {
     id: string | null;
     tituloPagina: string = 'Ingresa El Personaje';
     txtBoton: string = 'Enviar';
-    @ViewChild('formPersonajePEPE') formPersonajePEPE! : any
+    @ViewChild('formPersonajePEPE') formPersonajePEPE!: any
 
     constructor(private fb: FormBuilder, private _personajeService: PersonajesService, private router: Router, private idPersonajeRuta: ActivatedRoute) {
         this.ingresoPersonaje = this.fb.group({
@@ -79,17 +79,17 @@ export class IngresoPersonajeComponent implements OnInit {
             return;
         }
         console.log(this.id)
-            this._personajeService.putPersonaje(this.id, this.ingresoPersonaje.value).subscribe(data => {
-                Swal.fire({
-                    title: 'Personaje Actualizado',
-                    imageUrl: 'https://media.tenor.com/EyFtj9wIuNIAAAAC/one-piece-nekomamushi.gif',
-                    imageWidth: 400,
-                    imageHeight: 300,
-                    timer: 1500
-                })
-                this.router.navigate(['/ingreso-personaje'])
+        this._personajeService.putPersonaje(this.id, this.ingresoPersonaje.value).subscribe(data => {
+            Swal.fire({
+                title: 'Personaje Actualizado',
+                imageUrl: 'https://media.tenor.com/EyFtj9wIuNIAAAAC/one-piece-nekomamushi.gif',
+                imageWidth: 400,
+                imageHeight: 300,
+                timer: 1500
             })
-        }
+            this.router.navigate(['/ingreso-personaje'])
+        })
+    }
 
     borrarFormulario() {
         this.ingresoPersonaje.reset()
@@ -99,7 +99,9 @@ export class IngresoPersonajeComponent implements OnInit {
         Swal.fire({
             title: '¿Segura?',
             text: '¿Segura... segura?',
-            icon: 'warning',
+            imageUrl: 'https://media.tenor.com/FOoMkyH4oG8AAAAC/luffy-one-piece.gif',
+            imageWidth: 400,
+            imageHeight: 300,
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
@@ -108,8 +110,11 @@ export class IngresoPersonajeComponent implements OnInit {
             if (result.isConfirmed) {
                 this._personajeService.deletePersonaje(id).subscribe(data => {
                     Swal.fire({
-                        icon: 'success',
-                        title: 'Y se marchó, y a su barco le llamó Libertad'
+                        title: 'Y se marchó, y a su barco le llamó "libertad"',
+                        imageUrl: 'https://media.tenor.com/JYkfBdbO1JkAAAAC/one-piece-boat.gif',
+                        imageWidth: 400,
+                        imageHeight: 200,
+                        timer: 2000
                     })
                     this.obtenerPersonajes();
                 }, error => {
@@ -117,7 +122,6 @@ export class IngresoPersonajeComponent implements OnInit {
             }
         })
     }
-
 
     ngOnInit(): void {
         this.obtenerPersonajes()
@@ -143,7 +147,7 @@ export class IngresoPersonajeComponent implements OnInit {
         }
     }
 
-    desplazar(){
+    desplazar() {
         window.scrollTo(0, 0);
     }
 }

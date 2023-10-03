@@ -92,11 +92,17 @@ button:active .button_top {
     font-family: 'twopiece';
 }
 
+.eyeicon{
+    position: absolute;
+    right: 15px;
+    top: 14px;
+    cursor: pointer;
+}
+
 .bg-general-islaonepiece {
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-attachment: fixed !important;
-    padding: 150px 0;
-
+    padding: 100px 0;
 }
