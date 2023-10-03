@@ -16,16 +16,16 @@ export class RegistroService {
         return this.http.get(`${this.url}/obtener-usuarios`)
     }
 
-    getUsuario():Observable<any>{
-        return this.http.get(`${this.url}`)
+    getUsuario(idUsuario:string):Observable<any>{
+        return this.http.get(`${this.url}/obtener-usuario/${idUsuario}`)
     }
 
     postUsuario(registro: Registro):Observable<any>{
         return this.http.post(`${this.url}/crear-usuario`, registro)
     }
 
-    putUsuario():Observable<any>{
-        return this.http.put(`${this.url}`, {})
+    putUsuario(idUsuario: string | null, dataUsuario: Registro):Observable<any>{
+        return this.http.put(`${this.url}/actualizar-usuario/${idUsuario}`, dataUsuario)
     }
 
     deleteUsuario(idUsuario:string):Observable<any>{

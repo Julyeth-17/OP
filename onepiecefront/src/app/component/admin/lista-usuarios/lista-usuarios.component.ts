@@ -46,7 +46,6 @@ export class ListaUsuariosComponent implements OnInit {
                     })
                     this.traerUsuarios();
                 }, error => {
-
                 })
             }
         })

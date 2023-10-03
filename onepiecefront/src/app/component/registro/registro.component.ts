@@ -1,8 +1,8 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Registro } from 'src/app/models/registro';
 import { RegistroService } from 'src/app/services/registro.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,21 +10,26 @@ import Swal from 'sweetalert2';
     templateUrl: './registro.component.html',
     styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent {
+export class RegistroComponent implements OnInit {
 
     @ViewChild('txtPass2') inputPass2!: ElementRef
     @ViewChild('alertPass') alertPass!: ElementRef
 
     formularioRegistro: FormGroup
-    regexAlfanum = /^[a-zA-Z0-9_.]+$/
-    regexCorreo = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
+    regexAlfanum = /^[a-zA-Z0-9_.]+$/;
+    regexCorreo = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    id: string | null;
+    tituloPagina: string = '¡Sé Parte de la Tripulación!';
+    txtBoton: string = 'Enviar'
 
-    constructor(private fb: FormBuilder, private _registroService: RegistroService, private router: Router) {
+    constructor(private fb: FormBuilder, private _registroService: RegistroService, private router: Router, private idUsuarioRuta: ActivatedRoute) {
         this.formularioRegistro = this.fb.group({
             correo: ['', [Validators.required, Validators.pattern(this.regexCorreo)]],
             usuario: ['', [Validators.required, Validators.pattern(this.regexAlfanum)]],
             contraseña: ['', [Validators.required, Validators.pattern(this.regexAlfanum)]]
         })
+
+        this.id = this.idUsuarioRuta.snapshot.paramMap.get('id')
     }
 
     listarUsuarios: Registro[] = [];
@@ -40,26 +45,33 @@ export class RegistroComponent {
 
     enviarFormulario() {
         let registroData: Registro = this.formularioRegistro.value;
-
-        if (this.rectificarPass()) {
-            this._registroService.postUsuario(registroData).subscribe(data => {
-                Swal.fire({
-                    title: '¡Bienvenido!',
-                    imageUrl: 'https://i.giphy.com/media/tuCFp8rod0x3O/giphy.webp',
-                    imageWidth: 400,
-                    imageHeight: 200,
-                    imageAlt: 'Custom image',
-                    timer: 1500
+        console.log(this.id)
+        if (this.id == null) {
+            if (this.rectificarPass()) {
+                this._registroService.postUsuario(registroData).subscribe(data => {
+                    Swal.fire({
+                        title: '¡Bienvenido!',
+                        imageUrl: 'https://i.giphy.com/media/tuCFp8rod0x3O/giphy.webp',
+                        imageWidth: 400,
+                        imageHeight: 200,
+                        imageAlt: 'Custom image',
+                        timer: 1500
+                    })
+                    this.router.navigate(['/inicio-sesion']);
                 })
-                this.router.navigate(['/inicio-sesion']);
-            }, error => {
-
-            })
+            }
+        } else {
+            if (this.rectificarPass()) {
+                this._registroService.putUsuario(this.id, this.formularioRegistro.value).subscribe(res => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Usuario Actualizado',
+                        iconColor: '#2ce30b'
+                    })
+                    this.router.navigate(['/admin/usuarios-registrados'])
+                })
+            }
         }
-    }
-
-    borrarFormulario() {
-        this.formularioRegistro.reset()
     }
 
     rectificarPass() {
@@ -72,10 +84,30 @@ export class RegistroComponent {
             return true
         }
     }
+
+    ngOnInit(): void {
+        this.accionSolicitada()
+    }
+
+    accionSolicitada() {
+        if (this.id != null) {
+            this.tituloPagina = 'Actualizar Usuario'
+            this.txtBoton = 'Guardar Cambios'
+            this._registroService.getUsuario(this.id).subscribe(res => {
+                this.formularioRegistro.setValue({
+                    correo: res.correo,
+                    usuario: res.usuario,
+                    contraseña: ''
+                })
+            }, error => {
+                this.router.navigate(['/404']);
+            });
+        }
+    }
 }
 
 
-    // ngOnInit(): void {
-    //     this.obtenerUsuarios()
-    // ESTO ES PARA PINTAR LA INFORMACION, LISTAR LOS PERSONAJES, NO PARA EL REGISTRO DE USUARIOS
-    // }
+// ngOnInit(): void {
+//     this.obtenerUsuarios()
+// ESTO ES PARA PINTAR LA INFORMACION, LISTAR LOS PERSONAJES, NO PARA EL REGISTRO DE USUARIOS
+// }

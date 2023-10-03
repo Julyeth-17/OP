@@ -12,6 +12,7 @@ import { InicioSesionComponent } from './component/inicio-sesion/inicio-sesion.c
 import { HttpClientModule} from "@angular/common/http";
 import { IngresoPersonajeComponent } from './component/ingreso-personaje/ingreso-personaje.component';
 import { ListaUsuariosComponent } from './component/admin/lista-usuarios/lista-usuarios.component';
+import { PaginaErrorComponent } from './component/pagina-error/pagina-error.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { ListaUsuariosComponent } from './component/admin/lista-usuarios/lista-u
         InicioSesionComponent,
         IngresoPersonajeComponent,
         ListaUsuariosComponent,
+        PaginaErrorComponent,
     ],
     imports: [
         BrowserModule,

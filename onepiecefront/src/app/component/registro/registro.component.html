@@ -2,7 +2,7 @@
     <div class="caja1">
         <form [formGroup]="formularioRegistro" (ngSubmit)="enviarFormulario()"
             class="justify-content-center text-center">
-            <h2 class="mb-4 texto">¡Se parte de la tripulación!</h2>
+            <h2 class="mb-4 texto">{{ tituloPagina }}</h2>
             <div class="input mb-4">
                 <input type="text" required="" autocomplete="off" formControlName="correo">
                 <label for="correo">CORREO</label>
@@ -42,7 +42,7 @@
             </div>
 
             <button type="submit" [disabled]="formularioRegistro.invalid" class="mb-3">
-                <span class="button_top btn">ENVIAR</span>
+                <span class="button_top btn">{{ txtBoton }}</span>
             </button>
         </form>
     </div>

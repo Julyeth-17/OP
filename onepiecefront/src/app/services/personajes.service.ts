@@ -8,7 +8,7 @@ import { Personajes } from '../models/personajes';
 })
 export class PersonajesService {
 
-    url = 'http://localhost:3000/api/v1/'
+    url = 'http://localhost:3000/api/v1'
 
     constructor(private http: HttpClient) { }
 
@@ -16,20 +16,20 @@ export class PersonajesService {
         return this.http.get(`${this.url}/obtener-personajes`)
     }
 
-    getPersonaje():Observable<any>{
-        return this.http.get(`${this.url}`)
+    getPersonaje(idPersonaje:string):Observable<any>{
+        return this.http.get(`${this.url}/buscar-personajes/${idPersonaje}`)
     }
 
     postPersonaje(personaje: Personajes):Observable<any>{
         return this.http.post(`${this.url}/crear-personaje`, personaje)
     }
 
-    putPersonaje():Observable<any>{
-        return this.http.put(`${this.url}`, {})
+    putPersonaje(idPersonaje:string | null, dataPersonaje:Personajes):Observable<any>{
+        return this.http.put(`${this.url}/actualizar-personaje/${idPersonaje}`, dataPersonaje)
     }
 
-    deletePersonaje():Observable<any>{
-        return this.http.delete(`${this.url}`)
+    deletePersonaje(idPersonaje:string):Observable<any>{
+        return this.http.delete(`${this.url}/eliminar-personaje/${idPersonaje}`)
     }
 
 }
