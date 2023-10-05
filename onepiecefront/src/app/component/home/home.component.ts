@@ -16,15 +16,6 @@ export class HomeComponent implements OnInit {
 
     }
         ngOnInit(): void {
-            this.obtenerPersonajes()
-        }
-
-        obtenerPersonajes(){
-            this._personajeService.getPersonajes().subscribe(data => {
-                this.listaPersonajes = data
-                console.log('data')
-            }, error => {
-                console.log('error')
-            })
+            // this.obtenerPersonajes()
         }
     }

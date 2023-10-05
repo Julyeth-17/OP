@@ -13,10 +13,30 @@ exports.crearPersonaje = async (req, res) => {
     }
 }
 
+// exports.obtenerTodosLosPersonajes = async (req, res) => {
+//     try {
+//         let limite = (req.params.limite == null) ? 3: req.params.limite
+//         let inicioPagina = (req.params.pagina == null) ? 1: req.params.pagina
+//         const personajesPaginados = await Personaje.paginate({}, {
+//             page: inicioPagina,
+//             limit: limite
+//         });
+//         res.json(personajesPaginados);
+//     } catch (error) {
+//         console.log(error)
+//         res.status(502).json({response: 'Oops! Something went wrong'})
+//     }
+// }
+
 exports.obtenerTodosLosPersonajes = async (req, res) => {
     try {
-        const personajesData = await Personaje.find()
-        res.json(personajesData)
+        let limite = (req.body.limite == null) ? 5: req.body.limite
+        let inicioPagina = (req.body.pagina == null) ? 1: req.body.pagina
+        const personajesPaginados = await Personaje.paginate({}, {
+            page: inicioPagina,
+            limit: limite
+        });
+        res.json(personajesPaginados);
     } catch (error) {
         console.log(error)
         res.status(502).json({response: 'Oops! Something went wrong'})

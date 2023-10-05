@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, MinLengthValidator, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Registro } from 'src/app/models/registro';
 import { RegistroService } from 'src/app/services/registro.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -22,6 +22,7 @@ export class RegistroComponent implements OnInit {
     formularioRegistro: FormGroup
     regexAlfanum = /^[a-zA-Z0-9_.]+$/;
     regexCorreo = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    regexPass = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
     id: string | null;
     tituloPagina: string = '¡Sé Parte de la Tripulación!';
     txtBoton: string = 'Enviar'
@@ -30,7 +31,7 @@ export class RegistroComponent implements OnInit {
         this.formularioRegistro = this.fb.group({
             correo: ['', [Validators.required, Validators.pattern(this.regexCorreo)]],
             usuario: ['', [Validators.required, Validators.pattern(this.regexAlfanum), Validators.minLength(5)]],
-            contraseña: ['', [Validators.required, Validators.pattern(this.regexAlfanum), Validators.minLength(8)]]
+            contraseña: ['', [Validators.required, Validators.pattern(this.regexPass), Validators.minLength(8)]]
         })
 
         this.id = this.idUsuarioRuta.snapshot.paramMap.get('id')

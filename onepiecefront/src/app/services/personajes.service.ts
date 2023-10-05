@@ -12,8 +12,8 @@ export class PersonajesService {
 
     constructor(private http: HttpClient) { }
 
-    getPersonajes():Observable<any>{
-        return this.http.get(`${this.url}/obtener-personajes`)
+    postPersonajes(parametros: any):Observable<any>{
+        return this.http.post(`${this.url}/obtener-personajes`, parametros)
     }
 
     getPersonaje(idPersonaje:string):Observable<any>{

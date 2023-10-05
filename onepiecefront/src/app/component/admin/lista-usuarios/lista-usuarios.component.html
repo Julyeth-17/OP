@@ -1,9 +1,9 @@
 <section class="bg-general-islaonepiece" style="background: url(assets/img/fondo.jpg);">
-    <div class="container">
-        <h1 class="text-center py-4">Usuarios Registrados</h1>
-        <table class="table pt-2">
+    <div class="container" style="width: 100%; background-color: aliceblue; border: 1.5px, solid, black; border-radius: 25px; height:600px;">
+        <h1 class="text-center py-4" style="font-family: 'twopiece';">Usuarios Registrados</h1>
+        <table class="table pt-2" style="border: 2px; border-radius: 25px;">
             <thead>
-                <tr>
+                <tr style="font-family: 'navText'; font-size: 20px;">
                     <th scope="col">Correo</th>
                     <th scope="col">Usuario</th>
                     <th scope="col">Acciones</th>
@@ -11,7 +11,7 @@
             </thead>
             <tbody>
 
-                <tr class="align-middle" *ngFor="let usuarioData of listaUsuarios">
+                <tr class="align-middle" style="font-family: 'navText'; font-size: 17px;" *ngFor="let usuarioData of listaUsuarios">
                     <td>{{usuarioData.correo}}</td>
                     <td>{{usuarioData.usuario}}</td>
                     <td>

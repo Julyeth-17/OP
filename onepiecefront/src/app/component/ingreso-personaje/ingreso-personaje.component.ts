@@ -19,6 +19,7 @@ export class IngresoPersonajeComponent implements OnInit {
     id: string | null;
     tituloPagina: string = 'Ingresa El Personaje';
     txtBoton: string = 'Enviar';
+    pagina: number = 1;
     @ViewChild('formPersonajePEPE') formPersonajePEPE!: any
 
     constructor(private fb: FormBuilder, private _personajeService: PersonajesService, private router: Router, private idPersonajeRuta: ActivatedRoute) {
@@ -36,13 +37,30 @@ export class IngresoPersonajeComponent implements OnInit {
 
     listaPersonajes: Personajes[] = [];
 
+
     obtenerPersonajes() {
-        this._personajeService.getPersonajes().subscribe(data => {
-            this.listaPersonajes = data
-            console.log('data')
+        this._personajeService.postPersonajes({
+            "pagina": this.pagina,
+            "limite": 5
+        }).subscribe(data => {
+            this.listaPersonajes = data.docs
+            console.log(data)
+            console.log(this.listaPersonajes)
         }, error => {
             console.log('error')
         })
+    }
+
+    next() {
+        this.pagina = this.pagina + 1;
+        this.obtenerPersonajes()
+        console.log(this.pagina);
+    }
+
+    back() {
+        this.pagina = this.pagina -1;
+        this.obtenerPersonajes()
+        console.log(this.pagina);
     }
 
     enviarFormulario() {

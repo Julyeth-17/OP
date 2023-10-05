@@ -24,7 +24,7 @@
     padding: 0.8em;
     outline: none;
     border: 1.5px solid black;
-
+    font-family: 'navText';
     border-radius: 20px;
     width: 100%;
 }
