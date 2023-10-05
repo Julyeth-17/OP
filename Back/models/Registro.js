@@ -8,7 +8,7 @@ const RegistroSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    password:
+    contraseña:
     {
         type: String,
         required: true

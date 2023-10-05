@@ -23,3 +23,5 @@ router.post('/ingreso', sesionController.generarToken)
 module.exports = router
 
 //http://localhost:3000/api/v1/buscar-personaje/64f66ebfc5fcd6bed4ccf11f
+
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTY1NDYwMjgsImV4cCI6MTY5NjU0OTYyOH0.q7IxxwMJXEltjAXF7Fu9j9tqL4akbYDmX6hDo6ASFts
