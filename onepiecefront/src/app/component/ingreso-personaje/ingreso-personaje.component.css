@@ -150,3 +150,14 @@ input[type=number]::-webkit-outer-spin-button {
     transform: translateY(-45px);
 }
 
+.atras,
+.siguiente {
+    background-color: aliceblue;
+    border: solid 1.5px #000000;
+    border-radius: 25px;
+    font-size: 17px;
+    font-family: 'twopiece';
+    cursor: pointer;
+    padding: 8px;
+    width: 10%;
+}

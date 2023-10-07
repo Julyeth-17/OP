@@ -20,6 +20,11 @@ export class IngresoPersonajeComponent implements OnInit {
     tituloPagina: string = 'Ingresa El Personaje';
     txtBoton: string = 'Enviar';
     pagina: number = 1;
+
+
+    atras: any = null
+    siguiente: any = null
+
     @ViewChild('formPersonajePEPE') formPersonajePEPE!: any
 
     constructor(private fb: FormBuilder, private _personajeService: PersonajesService, private router: Router, private idPersonajeRuta: ActivatedRoute) {
@@ -54,6 +59,7 @@ export class IngresoPersonajeComponent implements OnInit {
     next() {
         this.pagina = this.pagina + 1;
         this.obtenerPersonajes()
+
         console.log(this.pagina);
     }
 

@@ -3,14 +3,14 @@ const jwt = require('jsonwebtoken')
 const Usuario = require('../models/Registro')
 
 exports.generarToken = async (req, res) => {
-    const {usuario, contraseña} = req.body
+    const {usuario, password} = req.body
 
     const user = await Usuario.findOne({usuario: usuario})
     if(!user){
         return res.status(401).json({status: 'El correo es invalido'})
     }
 
-    if(user.contraseña !== contraseña){
+    if(user.password !== password){
         return res.status(401).json({status: 'La contraseña es invalida'})
     }
 

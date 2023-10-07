@@ -31,7 +31,7 @@ export class RegistroComponent implements OnInit {
         this.formularioRegistro = this.fb.group({
             correo: ['', [Validators.required, Validators.pattern(this.regexCorreo)]],
             usuario: ['', [Validators.required, Validators.pattern(this.regexAlfanum), Validators.minLength(5)]],
-            contraseña: ['', [Validators.required, Validators.pattern(this.regexPass), Validators.minLength(8)]]
+            password: ['', [Validators.required, Validators.pattern(this.regexPass), Validators.minLength(8)]]
         })
 
         this.id = this.idUsuarioRuta.snapshot.paramMap.get('id')
@@ -85,7 +85,7 @@ export class RegistroComponent implements OnInit {
     }
 
     rectificarPass() {
-        let passUser = this.formularioRegistro.get('contraseña')?.value;
+        let passUser = this.formularioRegistro.get('password')?.value;
         if (passUser != this.inputPass2?.nativeElement.value) {
             this.alertPass.nativeElement.classList.remove('d-none')
             return false
@@ -107,7 +107,7 @@ export class RegistroComponent implements OnInit {
                 this.formularioRegistro.setValue({
                     correo: res.correo,
                     usuario: res.usuario,
-                    contraseña: ''
+                    password: ''
                 })
             }, error => {
                 this.router.navigate(['/404']);

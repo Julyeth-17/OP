@@ -25,15 +25,15 @@
 
             <div class="input mb-4">
                 <input [type]="changetype?'password':'text'" required="" autocomplete="off"
-                    formControlName="contraseña">
+                    formControlName="password">
                 <span class="eyeicon" (click)="verpass()"><i
                         [ngClass]="visible? 'fa-solid fa-eye':'fa-solid fa-eye-slash'"></i></span>
                 <label for="password">CONTRASEÑA</label>
-                <div *ngIf="formularioRegistro.get('contraseña')!.hasError('required') && formularioRegistro.get('contraseña')!.touched"
+                <div *ngIf="formularioRegistro.get('password')!.hasError('required') && formularioRegistro.get('password')!.touched"
                     class="fw-bold text-danger">Contraseña Requerida</div>
-                <div *ngIf="formularioRegistro.get('contraseña')!.hasError('minlength') && formularioRegistro.get('contraseña')!.touched"
+                <div *ngIf="formularioRegistro.get('password')!.hasError('minlength') && formularioRegistro.get('password')!.touched"
                     class="fw-bold text-danger">La contraseña debe contener al menos 8 caracteres</div>
-                <div *ngIf="formularioRegistro.get('contraseña')!.hasError('pattern') && formularioRegistro.get('contraseña')!.touched"
+                <div *ngIf="formularioRegistro.get('password')!.hasError('pattern') && formularioRegistro.get('password')!.touched"
                     class="fw-bold text-danger">La contraseña debe tener al menos un dígito, una minúscula y una
                     mayúscula</div>
             </div>

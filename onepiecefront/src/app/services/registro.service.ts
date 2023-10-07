@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import { Registro } from '../models/registro';
@@ -8,12 +8,13 @@ import { Registro } from '../models/registro';
 })
 export class RegistroService {
 
-    url = 'http://localhost:3000/api/v1/'
+    url = 'http://localhost:3000/api/v1'
 
     constructor(private http: HttpClient) { }
 
     getUsuarios():Observable<any>{
-        return this.http.get(`${this.url}/obtener-usuarios`)
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`)
+        return this.http.get(`${this.url}/obtener-usuarios`, {headers} )
     }
 
     getUsuario(idUsuario:string):Observable<any>{
@@ -31,5 +32,19 @@ export class RegistroService {
     deleteUsuario(idUsuario:string):Observable<any>{
         return this.http.delete(`${this.url}/eliminar-usuario/${idUsuario}`)
     }
+
+    postIngresoUsuario(dataLogin:object):Observable<any>{
+        return this.http.post(`${this.url}/ingreso`, dataLogin)
+    }
+
+    estaLogin(){
+        // if(sessionStorage.getItem('token') != null){
+        //     return true
+        // } else {
+        //     return false}
+
+        return (sessionStorage.getItem('token') != null) ? true : false
+    }
+
 
 }

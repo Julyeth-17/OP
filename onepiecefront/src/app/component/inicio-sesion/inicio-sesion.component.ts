@@ -1,5 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RegistroService } from 'src/app/services/registro.service'
+import { Router } from '@angular/router';
+
 
 @Component({
     selector: 'app-inicio-sesion',
@@ -11,14 +13,27 @@ export class InicioSesionComponent {
     visible: boolean = true;
     changetype: boolean = true;
 
-    formularioInicioSesion: FormGroup
+    userFormLogin = {
+        usuario: '',
+        password: ''
+    }
     regexAlfanum = /[a-zA-Z0-9_.]+$/
 
-    constructor(private fb: FormBuilder) {
-        this.formularioInicioSesion = this.fb.group({
-            usuario: ['', [Validators.required, Validators.pattern(this.regexAlfanum)]],
-            contraseña: ['', [Validators.required, Validators.pattern(this.regexAlfanum)]]
-        })
+    constructor(private _registroService: RegistroService) {
+
+    }
+
+    ingresoUsuario(){
+
+        this._registroService.postIngresoUsuario(this.userFormLogin).subscribe(respuestaAPI => {
+            sessionStorage.setItem('token', respuestaAPI.token);
+
+
+            console.log(respuestaAPI);
+        }, err => {
+            console.log(this.userFormLogin);
+        });
+
     }
 
     verpass(){
@@ -26,7 +41,5 @@ export class InicioSesionComponent {
         this.changetype = !this.changetype
     }
 
-    enviarFormulario() {
-        console.log(this.formularioInicioSesion)
-    };
+
 }

@@ -6,6 +6,7 @@ import { InicioSesionComponent } from './component/inicio-sesion/inicio-sesion.c
 import { IngresoPersonajeComponent } from './component/ingreso-personaje/ingreso-personaje.component';
 import { ListaUsuariosComponent } from './component/admin/lista-usuarios/lista-usuarios.component';
 import { PaginaErrorComponent } from './component/pagina-error/pagina-error.component';
+import { autenticacionGuard } from './guards/autenticacion.guard';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
     { path: 'ingreso-personaje', component: IngresoPersonajeComponent}, //url que quiero poner
     { path: 'actualizar-personaje/:id', component: IngresoPersonajeComponent},
     { path: 'actualizar-usuario/:id', component: RegistroComponent},
-    { path: 'admin/usuarios-registrados', component: ListaUsuariosComponent},
+    { path: 'admin/usuarios-registrados', canMatch:[autenticacionGuard], component: ListaUsuariosComponent},
     { path: '404', component: PaginaErrorComponent},
     { path: '**', redirectTo: '404', pathMatch: 'full'} // SIEMPRE TIENE QUE ESTAR AL FINAL
 ];

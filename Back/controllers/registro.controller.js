@@ -50,10 +50,10 @@ exports.actualizarUsuario = async (req, res) => {
             if (!dataUser) {
                 res.status(404).json({respose:'Usuario no encontrado'})
             } else {
-                const { correo, usuario, contraseña} = req.body
+                const { correo, usuario, password} = req.body
                 dataUser.correo = correo
                 dataUser.usuario = usuario
-                dataUser.contraseña = contraseña
+                dataUser.password = password
                 let: documentoUpdate = await Registro.findOneAndUpdate({ _id: req.params.id }, dataUser, {new: true})
                 res.json(documentoUpdate)
             }
