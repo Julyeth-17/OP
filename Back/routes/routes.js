@@ -12,8 +12,9 @@ router.post('/crear-personaje', personajesController.crearPersonaje)
 router.put('/actualizar-personaje/:id', personajesController.actualizarPersonaje)
 router.delete('/eliminar-personaje/:id', personajesController.eliminarPersonaje)
 
-router.get('/obtener-usuarios/', mdjwt.verificarToken, registroController.obtenerTodosLosUsuarios)
-router.get('/obtener-usuario/:id', registroController.obtenerUnSoloUsuario),
+
+router.post('/obtener-usuarios/', mdjwt.verificarToken, registroController.obtenerTodosLosUsuarios)
+router.get('/obtener-usuario/:id', mdjwt.verificarToken, registroController.obtenerUnSoloUsuario),
 router.post('/crear-usuario', registroController.crearUsuario),
 router.put('/actualizar-usuario/:id', registroController.actualizarUsuario),
 router.delete('/eliminar-usuario/:id', registroController.eliminarUsuario)

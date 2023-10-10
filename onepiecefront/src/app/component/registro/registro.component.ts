@@ -26,6 +26,7 @@ export class RegistroComponent implements OnInit {
     id: string | null;
     tituloPagina: string = '¡Sé Parte de la Tripulación!';
     txtBoton: string = 'Enviar'
+    pagina : number = 1;
 
     constructor(private fb: FormBuilder, private _registroService: RegistroService, private router: Router, private idUsuarioRuta: ActivatedRoute) {
         this.formularioRegistro = this.fb.group({
@@ -40,8 +41,13 @@ export class RegistroComponent implements OnInit {
     listarUsuarios: Registro[] = [];
 
     obtenerUsuarios() {
-        this._registroService.getUsuarios().subscribe(data => {
-            this.listarUsuarios = data
+        this._registroService.postUsuarios(
+            {
+                "pagina": this.pagina,
+                "limite": 7
+            }
+        ).subscribe(data => {
+            this.listarUsuarios = data.docs
             console.log('data')
         }, error => {
             console.log('error')

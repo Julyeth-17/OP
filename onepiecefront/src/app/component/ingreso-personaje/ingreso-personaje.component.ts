@@ -21,6 +21,7 @@ export class IngresoPersonajeComponent implements OnInit {
     txtBoton: string = 'Enviar';
     pagina: number = 1;
 
+    listaPersonajes: Personajes[] = [];
 
     atras: any = null
     siguiente: any = null
@@ -40,7 +41,6 @@ export class IngresoPersonajeComponent implements OnInit {
         this.id = this.idPersonajeRuta.snapshot.paramMap.get('id')
     }
 
-    listaPersonajes: Personajes[] = [];
 
 
     obtenerPersonajes() {

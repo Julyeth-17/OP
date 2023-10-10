@@ -11,6 +11,10 @@ import Swal from 'sweetalert2'
 export class ListaUsuariosComponent implements OnInit {
 
     listaUsuarios: Registro[] = [];
+    pagina: number = 1;
+
+    atras: any = null
+    siguiente: any = null
 
     constructor(private _registroService: RegistroService) {
 
@@ -21,11 +25,27 @@ export class ListaUsuariosComponent implements OnInit {
     }
 
     traerUsuarios() {
-        this._registroService.getUsuarios().subscribe(data => {
-            this.listaUsuarios = data
+        console.log(this.pagina);
+        this._registroService.postUsuarios({
+            "pagina": this.pagina,
+            "limite": 7
+        }).subscribe(data => {
+            console.log(data)
+            this.listaUsuarios = data.docs
         }, error => {
             console.log(error)
         })
+    }
+
+    next() {
+        this.pagina = this.pagina + 1;
+        this.traerUsuarios()
+    }
+
+    back() {
+        this.pagina = this.pagina -1;
+        this.traerUsuarios()
+        console.log(this.pagina);
     }
 
     eliminarUsuario(id: any) {

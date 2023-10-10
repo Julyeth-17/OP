@@ -1,5 +1,6 @@
 <section class="bg-general-islaonepiece" style="background: url(assets/img/fondo.jpg);">
-    <div class="container" style="width: 100%; background-color: aliceblue; border: 1.5px, solid, black; border-radius: 25px; height:600px;">
+    <div class="container"
+        style="width: 100%; background-color: aliceblue; border: 1.5px, solid, black; border-radius: 25px; height:600px;">
         <h1 class="text-center py-4" style="font-family: 'twopiece';">Usuarios Registrados</h1>
         <table class="table pt-2" style="border: 2px; border-radius: 25px;">
             <thead>
@@ -11,15 +12,21 @@
             </thead>
             <tbody>
 
-                <tr class="align-middle" style="font-family: 'navText'; font-size: 17px;" *ngFor="let usuarioData of listaUsuarios">
+                <tr class="align-middle" style="font-family: 'navText'; font-size: 17px;"
+                    *ngFor="let usuarioData of listaUsuarios">
                     <td>{{usuarioData.correo}}</td>
                     <td>{{usuarioData.usuario}}</td>
                     <td>
-                        <button class="btn btn-dark mx-1" [routerLink]="['/actualizar-usuario', usuarioData._id]">Editar</button>
+                        <button class="btn btn-dark mx-1"
+                            [routerLink]="['/actualizar-usuario', usuarioData._id]">Editar</button>
                         <button class="btn btn-danger mx-1" (click)="eliminarUsuario(usuarioData._id)">Eliminar</button>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <div class="d-flex justify-content-between mt-3">
+            <button class="atras" (click)="back()">Atras</button>
+            <button class="siguiente" (click)="next()">Siguiente</button>
+        </div>
     </div>
 </section>

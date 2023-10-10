@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
+
 const RegistroSchema = mongoose.Schema({
     correo: {
         type: String,
@@ -19,4 +21,5 @@ const RegistroSchema = mongoose.Schema({
     }
 })
 
+RegistroSchema.plugin(mongoosePaginate);
 module.exports = mongoose.model('Registro', RegistroSchema)

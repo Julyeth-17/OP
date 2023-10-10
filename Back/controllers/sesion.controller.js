@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const Usuario = require('../models/Registro')
 
 exports.generarToken = async (req, res) => {
+    
     const {usuario, password} = req.body
 
     const user = await Usuario.findOne({usuario: usuario})
