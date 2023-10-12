@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { RegistroService } from 'src/app/services/registro.service';
 
 @Component({
     selector: 'app-navbar',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+    constructor (public _registroService: RegistroService, private _router: Router){ }
+
+    cerrarSesion(){
+        sessionStorage.removeItem('token');
+        this._router.navigate(['/inicio-sesion']);
+    }
 }

@@ -8,22 +8,36 @@
                 </li>
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <button class="nav-link active registro" routerLink="/ingreso-personaje">Personajes</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link active registro" routerLink="/registro">Registro</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link active iniciar-sesion" routerLink="/inicio-sesion">Inicia Sesión</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link active iniciar-sesion" routerLink="/admin/usuarios-registrados">Lista Usuarios</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link active iniciar-sesion">Mi Perfil</button>
-                </li>
+                <ng-container *ngIf="!_registroService.estaLogin(); else seccionPerfil">
+                    <li class="nav-item">
+                        <button class="nav-link active registro" routerLink="/registro">Registro</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link active iniciar-sesion" routerLink="/inicio-sesion">Inicia
+                            Sesión</button>
+                    </li>
+                </ng-container>
             </ul>
+            <ng-template #seccionPerfil>
+                    <li class="nav-item">
+                        <button class="nav-link active registro" routerLink="/ingreso-personaje">Personajes</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link active iniciar-sesion" routerLink="/admin/usuarios-registrados">Lista
+                            Usuarios</button>
+                        </li>
+                    <div class="dropdown">
+                        <li class="nav-item">
+                            <button class="nav-link active iniciar-sesion dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" routerLink="/perfil-usuario">Mi Perfil</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"
+                                        style="background-color: aliceblue; font-family: 'navText'; font-size: 20px;"
+                                        href="#" (click)="cerrarSesion()">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </ng-template>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>

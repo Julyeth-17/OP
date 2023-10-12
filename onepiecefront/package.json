@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "@angular/youtube-player": "^16.2.8",
     "@sweetalert2/themes": "^5.0.15",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.2",

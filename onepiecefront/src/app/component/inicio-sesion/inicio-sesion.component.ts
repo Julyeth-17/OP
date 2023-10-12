@@ -27,7 +27,7 @@ export class InicioSesionComponent {
             sessionStorage.setItem('token', respuestaAPI.token);
             console.log(respuestaAPI);
 
-            this.router.navigate(['/'])
+            this.router.navigate(['/perfil-usuario'])
         }, erro => {
             Swal.fire({
                 icon: 'error',

@@ -4,10 +4,22 @@
     font-family: "navText";
     font-size: 20px;
     gap: 1rem;
+    align-items: center;
+}
+
+.dropdown-menu[data-bs-popper] {
+    top: 100%;
+    left: 0;
+    margin-top: var(--bs-dropdown-spacer);
 }
 
 .fondoNav{
     background-color: #F0F8FF;
     opacity: 80%;
     border-block-end: 1.5px solid black !important;
+}
+
+.iniciar-sesion {
+    display: flex;
+    align-self: center;
 }
