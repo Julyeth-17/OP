@@ -18,7 +18,8 @@ export class RegistroService {
     }
 
     getUsuario(idUsuario:string):Observable<any>{
-        return this.http.get(`${this.url}/obtener-usuario/${idUsuario}`)
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`)
+        return this.http.get(`${this.url}/obtener-usuario/${idUsuario}`, {headers})
     }
 
     postUsuario(registro: Registro):Observable<any>{

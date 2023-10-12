@@ -22,7 +22,7 @@ export class RegistroComponent implements OnInit {
     formularioRegistro: FormGroup
     regexAlfanum = /^[a-zA-Z0-9_.]+$/;
     regexCorreo = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-    regexPass = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
+    regexPass = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
     id: string | null;
     tituloPagina: string = '¡Sé Parte de la Tripulación!';
     txtBoton: string = 'Enviar'

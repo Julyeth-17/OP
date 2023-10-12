@@ -5,3 +5,16 @@
     background-attachment: fixed !important;
     padding: 100px 0;
 }
+
+.card-body {
+    border: 1px solid #000;
+}
+
+.videito{
+    background-color: aliceblue;
+    border-radius: 25px !important;
+    border: #000 solid 1.5px;
+    margin-left: 130px !important;
+    padding-left: 45px !important;
+    padding-right: 45px !important;
+}
