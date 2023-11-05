@@ -4,7 +4,6 @@ import { Registro } from 'src/app/models/registro';
 import { RegistroService } from 'src/app/services/registro.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { min } from 'rxjs';
 
 @Component({
     selector: 'app-registro',
