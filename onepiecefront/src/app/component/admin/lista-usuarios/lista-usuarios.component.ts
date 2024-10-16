@@ -13,7 +13,7 @@ import Swal from 'sweetalert2'
 export class ListaUsuariosComponent implements OnInit {
 
     public listaUsuarios: iRegistro[] = [];
-    public colDefs: ColDef<iRegistro>[] = userColumns;
+    public columnDefs: (ColDef<iRegistro, any> | ColGroupDef<iRegistro>)[] = userColumns;
 
     defaultColDef: ColDef = {
         flex: 1,
