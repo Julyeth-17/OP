@@ -2,7 +2,28 @@
     <div class="container"
         style="width: 100%; background-color: aliceblue; border: 1.5px, solid, black; border-radius: 25px; height:600px;">
         <h1 class="text-center py-4" style="font-family: 'twopiece';">Usuarios Registrados</h1>
-        <table class="table pt-2" style="border: 2px; border-radius: 25px;">
+
+        <ng-container
+
+        >
+
+
+            <ag-grid-angular
+            [rowData]="listaUsuarios"
+
+            />
+            <ag-grid-angular
+            *ngFor="let u of colDefs"
+
+            >
+
+            </ag-grid-angular>
+            {{ listaUsuarios | json}}
+
+    </ng-container>
+
+
+        <!-- <table class="table pt-2" style="border: 2px; border-radius: 25px;">
             <thead>
                 <tr style="font-family: 'navText'; font-size: 20px;">
                     <th scope="col">Correo</th>
@@ -23,7 +44,7 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
         <div class="d-flex justify-content-between mt-3">
             <button class="atras" (click)="back()">Atras</button>
             <button class="siguiente" (click)="next()">Siguiente</button>

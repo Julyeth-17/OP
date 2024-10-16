@@ -8,8 +8,7 @@ import { Personajes } from '../models/personajes';
 })
 export class PersonajesService {
 
-    //url = 'http://localhost:3000/api/v1'
-    url = 'http://Taller-JuliethOP-1-913275889.us-east-1.elb.amazonaws.com:3000/api/v1';
+    url = 'http://localhost:3000/api/v1'
 
     constructor(private http: HttpClient) { }
 

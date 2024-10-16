@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Registro } from 'src/app/models/registro';
+import { iRegistro, Registro } from 'src/app/models/registro';
 import { RegistroService } from 'src/app/services/registro.service'
+import { ColDef, ColGroupDef } from '@ag-grid-community/core';
+import { userColumns } from './usuarios-columns';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -10,7 +12,13 @@ import Swal from 'sweetalert2'
 })
 export class ListaUsuariosComponent implements OnInit {
 
-    listaUsuarios: Registro[] = [];
+    public listaUsuarios: iRegistro[] = [];
+    public colDefs: ColDef<iRegistro>[] = userColumns;
+
+    defaultColDef: ColDef = {
+        flex: 1,
+    };
+
     pagina: number = 1;
 
     atras: any = null
@@ -30,7 +38,7 @@ export class ListaUsuariosComponent implements OnInit {
             "pagina": this.pagina,
             "limite": 7
         }).subscribe(data => {
-            console.log(data)
+            console.log(data.docs)
             this.listaUsuarios = data.docs
         }, error => {
             console.log(error)
