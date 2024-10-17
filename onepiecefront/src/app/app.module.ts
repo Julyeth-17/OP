@@ -9,15 +9,14 @@ import { FooterComponent } from './component/footer/footer.component';
 import { HomeComponent } from './component/home/home.component';
 import { RegistroComponent } from './component/registro/registro.component';
 import { InicioSesionComponent } from './component/inicio-sesion/inicio-sesion.component';
-import { HttpClientModule} from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { IngresoPersonajeComponent } from './component/ingreso-personaje/ingreso-personaje.component';
 import { ListaUsuariosComponent } from './component/admin/lista-usuarios/lista-usuarios.component';
 import { PaginaErrorComponent } from './component/pagina-error/pagina-error.component';
 import { PerfilUsuarioComponent } from './component/perfil-usuario/perfil-usuario.component';
 import { AgGridAngular } from 'ag-grid-angular';
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         NavbarComponent,
         FooterComponent,
@@ -29,15 +28,9 @@ import { AgGridAngular } from 'ag-grid-angular';
         PaginaErrorComponent,
         PerfilUsuarioComponent,
     ],
-    imports: [
-        BrowserModule,
+    bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule,
-        AgGridAngular,
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
-})
+        AgGridAngular], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
