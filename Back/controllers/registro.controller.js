@@ -16,13 +16,14 @@ exports.crearUsuario = async (req, res) => {
 exports.obtenerTodosLosUsuarios = async (req, res) => {
     console.log(req.body)
     try {
-        let limite = (req.body.parametros.limite == null) ? 7: req.body.parametros.limite
-        let inicioPagina = (req.body.parametros.pagina == null) ? 1: req.body.parametros.pagina
-        const usuariosPaginados = await Registro.paginate({}, {
-            page: inicioPagina,
-            limit: limite
-        });
-        res.json(usuariosPaginados);
+        //let limite = (req.body.parametros.limite == null) ? 7: req.body.parametros.limite
+        //let inicioPagina = (req.body.parametros.pagina == null) ? 1: req.body.parametros.pagina
+        const usuariosRegistrados = await Registro.find({}); 
+        res.json(usuariosRegistrados);
+            // {
+            // page: inicioPagina,
+            // limit: limite
+            // });
     } catch (error) {
         console.log(error)
         res.status(502).json({response: 'Oops! Something went wrong'})

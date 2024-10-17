@@ -14,6 +14,7 @@ router.delete('/eliminar-personaje/:id', personajesController.eliminarPersonaje)
 
 
 router.post('/obtener-usuarios/', mdjwt.verificarToken, registroController.obtenerTodosLosUsuarios)
+router.get('/obtener-todos-los-usuarios/', mdjwt.verificarToken, registroController.obtenerTodosLosUsuarios)
 router.get('/obtener-usuario/:id', mdjwt.verificarToken, registroController.obtenerUnSoloUsuario),
 router.post('/crear-usuario', registroController.crearUsuario),
 router.put('/actualizar-usuario/:id', registroController.actualizarUsuario),
