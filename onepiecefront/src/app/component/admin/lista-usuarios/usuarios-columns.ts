@@ -1,13 +1,13 @@
 import { ColDef, ColGroupDef } from "@ag-grid-community/core";
 
-export const userColumns: (ColDef | ColGroupDef)[] = [
+export const userColumns: ColDef[] = [
     {
-        field: 'docs.usuario',
+        field: 'usuario',
         headerName: 'Usuario',
         width: 150
     },
     {
-        field: 'docs.correo',
+        field: 'correo',
         headerName: 'Correo',
         width: 150
     }

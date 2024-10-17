@@ -3,24 +3,17 @@
         style="width: 100%; background-color: aliceblue; border: 1.5px, solid, black; border-radius: 25px; height:600px;">
         <h1 class="text-center py-4" style="font-family: 'twopiece';">Usuarios Registrados</h1>
 
-        <ng-container
+        <ng-container>
 
-        >
-
-
+            <!-- The AG Grid component -->
             <ag-grid-angular
             [rowData]="listaUsuarios"
-
             />
-            <ag-grid-angular
-            *ngFor="let u of colDefs"
-
-            >
-
+             <ag-grid-angular
+            *ngFor="let u of ">
             </ag-grid-angular>
             {{ listaUsuarios | json}}
-
-    </ng-container>
+        </ng-container>
 
 
         <!-- <table class="table pt-2" style="border: 2px; border-radius: 25px;">

@@ -12,8 +12,8 @@ import Swal from 'sweetalert2'
 })
 export class ListaUsuariosComponent implements OnInit {
 
-    public listaUsuarios: iRegistro[] = [];
-    public columnDefs: (ColDef<iRegistro, any> | ColGroupDef<iRegistro>)[] = userColumns;
+    public listaUsuarios: Registro[] = [];
+    public columnDefs: ColDef[] = userColumns;
 
     defaultColDef: ColDef = {
         flex: 1,
@@ -33,13 +33,9 @@ export class ListaUsuariosComponent implements OnInit {
     }
 
     traerUsuarios() {
-        console.log(this.pagina);
-        this._registroService.postUsuarios({
-            "pagina": this.pagina,
-            "limite": 7
-        }).subscribe(data => {
-            console.log(data.docs)
-            this.listaUsuarios = data.docs
+        this._registroService.getUsuarios().subscribe(data => {
+            console.log(data)
+            this.listaUsuarios = data
         }, error => {
             console.log(error)
         })

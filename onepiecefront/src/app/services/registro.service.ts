@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
+import { catchError, Observable, tap } from 'rxjs';
 import { Registro } from '../models/registro';
 
 @Injectable({
@@ -12,33 +12,45 @@ export class RegistroService {
 
     constructor(private http: HttpClient) { }
 
-    postUsuarios(parametros: any):Observable<any>{
+    postUsuarios(parametros: any): Observable<any> {
         const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`)
-        return this.http.post(`${this.url}/obtener-usuarios`, {parametros}, {headers})
+        return this.http.post(`${this.url}/obtener-usuarios`, { parametros }, { headers })
     }
 
-    getUsuario(idUsuario:string):Observable<any>{
+    getUsuarios(): Observable<any> {
         const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`)
-        return this.http.get(`${this.url}/obtener-usuario/${idUsuario}`, {headers})
+        return this.http.get(`${this.url}/obtener-todos-los-usuarios`, { headers })
+            .pipe(
+                tap(data => console.log('Usuarios obtenidos:', data)),
+                catchError(error => {
+                    console.error('Error al obtener usuarios:', error);
+                    return (error);
+                })
+            );
     }
 
-    postUsuario(registro: Registro):Observable<any>{
+    getUsuario(idUsuario: string): Observable<any> {
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`)
+        return this.http.get(`${this.url}/obtener-usuario/${idUsuario}`, { headers })
+    }
+
+    postUsuario(registro: Registro): Observable<any> {
         return this.http.post(`${this.url}/crear-usuario`, registro)
     }
 
-    putUsuario(idUsuario: string | null, dataUsuario: Registro):Observable<any>{
+    putUsuario(idUsuario: string | null, dataUsuario: Registro): Observable<any> {
         return this.http.put(`${this.url}/actualizar-usuario/${idUsuario}`, dataUsuario)
     }
 
-    deleteUsuario(idUsuario:string):Observable<any>{
+    deleteUsuario(idUsuario: string): Observable<any> {
         return this.http.delete(`${this.url}/eliminar-usuario/${idUsuario}`)
     }
 
-    postIngresoUsuario(dataLogin:object):Observable<any>{
+    postIngresoUsuario(dataLogin: object): Observable<any> {
         return this.http.post(`${this.url}/ingreso`, dataLogin)
     }
 
-    estaLogin(){
+    estaLogin() {
         // if(sessionStorage.getItem('token') != null){
         //     return true
         // } else {
