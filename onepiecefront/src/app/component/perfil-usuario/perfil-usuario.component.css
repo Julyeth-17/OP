@@ -4,6 +4,7 @@
     background-size: cover !important;
     background-attachment: fixed !important;
     padding: 100px 0;
+    min-height: 100vh;
 }
 
 .card-body {

@@ -1,23 +1,13 @@
-.bg-general-islaonepiece {
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    background-attachment: fixed !important;
-    padding: 150px 0;
+.caja1 {
+  align-items: center;
+  background-color: aliceblue;
+  border-radius: 20px;
+  border: solid 1.5px black;
+  margin: 0 auto;
+  max-width: 700px;
+  opacity: 90%;
+  padding: 1rem 1rem;
 }
-
-.atras,
-.siguiente {
-    background-color: aliceblue;
-    border: solid 1.5px #000000;
-    border-radius: 25px;
-    font-size: 17px;
-    font-family: 'twopiece';
-    cursor: pointer;
-    padding: 8px;
-    width: 10%;
-}
-
 
 .ag-theme-quartz {
   /* Changes the color of the grid text */
@@ -27,4 +17,15 @@
     /* Changes the header color of the top row */
     --ag-header-background-color: rgb(228, 237, 250);
     /* Changes the hover color of the row*/
-    --ag-row-hover-color: rgb(216, 226, 255);}
+    --ag-row-hover-color: rgb(216, 226, 255);
+    --ag-font-family: 'PixelifySans'
+    }
+
+    .bg-general-islaonepiece {
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+      padding: 150px 0;
+      min-height: 100vh;
+  }

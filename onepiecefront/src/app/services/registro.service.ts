@@ -38,7 +38,7 @@ export class RegistroService {
         return this.http.post(`${this.url}/crear-usuario`, registro)
     }
 
-    putUsuario(idUsuario: string | null, dataUsuario: Registro): Observable<any> {
+    putUsuario(idUsuario: string | undefined, dataUsuario: Registro): Observable<any> {
         return this.http.put(`${this.url}/actualizar-usuario/${idUsuario}`, dataUsuario)
     }
 
