@@ -32,5 +32,6 @@ import { AgGridAngular } from 'ag-grid-angular';
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        AgGridAngular], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        AgGridAngular],
+        providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

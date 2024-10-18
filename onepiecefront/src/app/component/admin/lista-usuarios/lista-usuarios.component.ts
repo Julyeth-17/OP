@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { iRegistro, Registro } from 'src/app/models/registro';
+import { Registro } from 'src/app/models/registro';
 import { RegistroService } from 'src/app/services/registro.service'
-import { ColDef, ColGroupDef } from '@ag-grid-community/core';
-import { userColumns } from './usuarios-columns';
+import { ColDef,  } from 'ag-grid-community';
+import { columnDefs } from './usuarios-columns';
 import Swal from 'sweetalert2'
+
+import "ag-grid-community/styles/ag-grid.css"
+//import "ag-grid-community/styles/ag-theme-quartz.css"
+
 
 @Component({
     selector: 'app-lista-usuarios',
@@ -12,17 +16,22 @@ import Swal from 'sweetalert2'
 })
 export class ListaUsuariosComponent implements OnInit {
 
-    public listaUsuarios: Registro[] = [];
-    public columnDefs: ColDef[] = userColumns;
+    themeClass =
+        "ag-theme-quartz-dark";
 
-    defaultColDef: ColDef = {
-        flex: 1,
+    public listaUsuarios: Registro[] = [];
+    public columnDefs: ColDef [] = columnDefs;
+    public defaultColDef: ColDef = {
+        resizable: true, // Hacer las columnas redimensionables
+        sortable: true,  // Permitir ordenación
+        filter: true,    // Habilitar filtrado
     };
 
     pagina: number = 1;
 
     atras: any = null
     siguiente: any = null
+
 
     constructor(private _registroService: RegistroService) {
 
