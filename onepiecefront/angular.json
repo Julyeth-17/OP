@@ -11,11 +11,12 @@
             "prefix": "app",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
+                    "builder": "@angular-devkit/build-angular:application",
                     "options": {
-                        "outputPath": "dist/onepiecefront",
+                        "outputPath": {
+                          "base": "dist/onepiecefront"
+                        },
                         "index": "src/index.html",
-                        "main": "src/main.ts",
                         "polyfills": [
                             "zone.js"
                         ],
@@ -28,14 +29,13 @@
                             "src/styles.css",
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "node_modules/animate.css/animate.min.css",
-                            "node_modules/sweetalert2/dist/sweetalert2.min.css",
-                            "node_modules/ag-grid-community/styles/ag-grid.css",
-                            "node_modules/ag-grid-community/styles/ag-theme-alpine.css"
+                            "node_modules/sweetalert2/dist/sweetalert2.min.css"
                         ],
                         "scripts": [
                             "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
                             "node_modules/sweetalert2/dist/sweetalert2.all.min.js"
-                        ]
+                        ],
+                        "browser": "src/main.ts"
                     },
                     "configurations": {
                         "production": {
@@ -54,9 +54,7 @@
                             "outputHashing": "all"
                         },
                         "development": {
-                            "buildOptimizer": false,
-                            "optimization": false,
-                            "vendorChunk": true,
+                          "optimization": false,
                             "extractLicenses": false,
                             "sourceMap": true,
                             "namedChunks": true

@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Registro } from 'src/app/models/registro';
 import { RegistroService } from 'src/app/services/registro.service'
-import { ColDef,  } from 'ag-grid-community';
+import { Registro } from 'src/app/models/registro';
+import { Component, OnInit } from '@angular/core';
+import { ColDef, themeQuartz } from 'ag-grid-community';
+import  myTheme from 'src/assets/themes/ag-usuarios.js'
 import { columnDefs } from './usuarios-columns';
 import Swal from 'sweetalert2'
 
-import "ag-grid-community/styles/ag-grid.css"
-//import "ag-grid-community/styles/ag-theme-quartz.css"
-
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-quartz.css";
 
 @Component({
     selector: 'app-lista-usuarios',
@@ -16,26 +16,23 @@ import "ag-grid-community/styles/ag-grid.css"
 })
 export class ListaUsuariosComponent implements OnInit {
 
-    themeClass =
-        "ag-theme-quartz-dark";
-
     public listaUsuarios: Registro[] = [];
-    public columnDefs: ColDef [] = columnDefs;
+    public columnDefs: ColDef[] = columnDefs;
+    public themeClass: string = "ag-theme-quartz";
+
     public defaultColDef: ColDef = {
-        resizable: true, // Hacer las columnas redimensionables
-        sortable: true,  // Permitir ordenación
-        filter: true,    // Habilitar filtrado
+        resizable: true,
+        sortable: true,
     };
+
+    mytheme = themeQuartz;
 
     pagina: number = 1;
 
     atras: any = null
     siguiente: any = null
 
-
-    constructor(private _registroService: RegistroService) {
-
-    }
+    constructor(private _registroService: RegistroService) { }
 
     ngOnInit(): void {
         this.traerUsuarios();
@@ -56,7 +53,7 @@ export class ListaUsuariosComponent implements OnInit {
     }
 
     back() {
-        this.pagina = this.pagina -1;
+        this.pagina = this.pagina - 1;
         this.traerUsuarios()
         console.log(this.pagina);
     }

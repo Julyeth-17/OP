@@ -7,15 +7,16 @@
 
             <!-- The AG Grid component -->
             <ag-grid-angular
-            class="ag-theme-alpine"
+            [class]="themeClass"
             style="width: 100%; height: 350px;"
             [columnDefs]="columnDefs"
             [rowData]="listaUsuarios"
-            [defaultColDef]="defaultColDef"
+            [pagination]="true"
+            [paginationPageSize]="10"
+            [paginationPageSizeSelector]="false"
             />
 
         </ng-container>
-
 
         <!-- <table class="table pt-2" style="border: 2px; border-radius: 25px;">
             <thead>
@@ -39,9 +40,9 @@
                 </tr>
             </tbody>
         </table> -->
-        <div class="d-flex justify-content-between mt-3">
+        <!-- <div class="d-flex justify-content-between mt-3">
             <button class="atras" (click)="back()">Atras</button>
             <button class="siguiente" (click)="next()">Siguiente</button>
-        </div>
+        </div> -->
     </div>
 </section>
