@@ -30,7 +30,7 @@ exports.crearPersonaje = async (req, res) => {
 
 exports.obtenerTodosLosPersonajes = async (req, res) => {
     try {
-        let limite = (req.body.limite == null) ? 5: req.body.limite
+        let limite = (req.body.limite == null) ? 6: req.body.limite
         let inicioPagina = (req.body.pagina == null) ? 1: req.body.pagina
         const personajesPaginados = await Personaje.paginate({}, {
             page: inicioPagina,

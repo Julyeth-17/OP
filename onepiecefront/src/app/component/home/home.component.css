@@ -4,6 +4,7 @@
     background-size: cover !important;
     background-attachment: fixed !important;
     padding: 30px 0;
+    min-height: 100vh;
 }
 
 .pinchekrrusel {
@@ -11,12 +12,10 @@
     flex-direction: column;
     justify-items: center;
     border-radius: 25px;
-    margin: 60px 30px;
-    width: 95%;
-    height: auto;
-    background-color: aliceblue;
+
+
+
     padding: 15px;
-    border: solid 1.5px black;
 }
 
 .carousel-inner img{

@@ -8,7 +8,7 @@ export const columnDefs: ColDef[] = [
     },
     {
     field: 'correo',
-    width: 200
+    width: 250
     },
     {
       headerName: 'Acciones',

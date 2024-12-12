@@ -92,6 +92,7 @@ export class ListaUsuariosComponent implements OnInit {
             icon: 'success',
             timer: 1500
           });
+          this.traerUsuarios()
         }
       }).catch(error => {
         console.error('Error al actualizar el usuario:', error);

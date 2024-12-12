@@ -23,8 +23,8 @@ export class IngresoPersonajeComponent implements OnInit {
 
     listaPersonajes: Personajes[] = [];
 
-    atras: any = null
-    siguiente: any = null
+    isLastPage: boolean = false
+    limite: number = 6;
 
     @ViewChild('formPersonajePEPE') formPersonajePEPE!: any
 
@@ -45,10 +45,10 @@ export class IngresoPersonajeComponent implements OnInit {
 
     obtenerPersonajes() {
         this._personajeService.postPersonajes({
-            "pagina": this.pagina,
-            "limite": 5
+            "pagina": this.pagina
         }).subscribe(data => {
             this.listaPersonajes = data.docs
+            this.isLastPage = this.listaPersonajes.length < this.limite;
             console.log(data)
             console.log(this.listaPersonajes)
         }, error => {
@@ -64,9 +64,12 @@ export class IngresoPersonajeComponent implements OnInit {
     }
 
     back() {
+      if (this.pagina > 0)
+      {
         this.pagina = this.pagina -1;
         this.obtenerPersonajes()
         console.log(this.pagina);
+      }
     }
 
     enviarFormulario() {

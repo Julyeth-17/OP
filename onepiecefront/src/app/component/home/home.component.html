@@ -1,38 +1,46 @@
 <section class="bg-general-islaonepiece" style="background: url(assets/img/fondo.jpg);">
 
-    <div id="carouselExampleInterval" class="carousel slide pinchekrrusel" data-bs-ride="carousel">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Carrusel -->
+      <div id="carouselExampleInterval" class="carousel slide col-md-8 col-12 mb-3 mb-md-0" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="assets/img/triom.png" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="assets/img/trioc.png" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/img/triow.png" class="d-block w-100" alt="...">
-            </div>
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="assets/img/triom.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="assets/img/trioc.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/img/triow.png" class="d-block w-100" alt="...">
+          </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
         </button>
-    </div>
-    <div class="d-flex">
-        <div class=" cajitaTexto">
-            <h2 class="texto">Lo que veras aquí</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos similique ipsa consectetur labore.
-                Assumenda nesciunt et quos dolore obcaecati nulla rerum quasi error! Deserunt ut nesciunt, soluta nihil
-                nobis cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim exercitationem culpa
-                quaerat. Cumque ipsa recusandae aliquid ea blanditiis laudantium unde ut amet odit iusto, voluptatum
-                minima magni reprehenderit possimus error. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Omnis, consequatur. Perferendis iste, accusantium hic reiciendis beatae aspernatur similique
-                consequuntur neque, quis tenetur doloribus deserunt totam? Eligendi neque maiores dolorem inventore!</p>
-        </div>
+      </div>
 
+      <!-- Caja de inicio de sesión -->
+      <div class="col-md-4 col-12">
+        <app-inicio-sesion></app-inicio-sesion>
+      </div>
     </div>
+  </div>
+
+  <div class="d-flex mt-5">
+    <div class=" cajitaTexto">
+      <h2 class="texto">Lo que veras aquí</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos similique ipsa consectetur labore.
+        Assumenda nesciunt et quos dolore obcaecati nulla rerum quasi error! Deserunt ut nesciunt, soluta nihil
+        nobis cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim exercitationem culpa
+        quaerat. Cumque ipsa recusandae aliquid ea blanditiis laudantium unde ut amet odit iusto, voluptatum
+        minima magni reprehenderit possimus error. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Omnis, consequatur. Perferendis iste, accusantium hic reiciendis beatae aspernatur similique
+        consequuntur neque, quis tenetur doloribus deserunt totam? Eligendi neque maiores dolorem inventore!</p>
+    </div>
+  </div>
