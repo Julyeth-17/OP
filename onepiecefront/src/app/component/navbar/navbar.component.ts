@@ -13,6 +13,6 @@ export class NavbarComponent {
 
     cerrarSesion(){
         sessionStorage.removeItem('token');
-        this._router.navigate(['/inicio-sesion']);
+        this._router.navigate(['']);
     }
 }

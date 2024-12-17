@@ -12,7 +12,7 @@ import { autenticacionGuard } from './guards/autenticacion.guard';
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'registro', component: RegistroComponent },
-    { path: 'inicio-sesion', component: InicioSesionComponent},
+    // { path: 'inicio-sesion', component: InicioSesionComponent},
     { path: 'ingreso-personaje', component: IngresoPersonajeComponent}, //url que quiero poner
     { path: 'perfil-usuario', component: PerfilUsuarioComponent}, //
     { path: 'actualizar-personaje/:id', component: IngresoPersonajeComponent},

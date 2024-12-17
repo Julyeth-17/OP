@@ -7,15 +7,8 @@
     min-height: 100vh;
 }
 
-.pinchekrrusel {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    border-radius: 25px;
-
-
-
-    padding: 15px;
+.container{
+  margin-top: 4rem;
 }
 
 .carousel-inner img{
@@ -28,7 +21,6 @@
     border: solid 1.5px black;
     border-radius: 25px;
     padding: 10px 10px;
-    margin: 0 30px;
     height: auto;
     background-color: aliceblue;
     opacity: 90%;

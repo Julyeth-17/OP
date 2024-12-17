@@ -3,44 +3,49 @@
   <div class="container">
     <div class="row align-items-center">
       <!-- Carrusel -->
-      <div id="carouselExampleInterval" class="carousel slide col-md-8 col-12 mb-3 mb-md-0" data-bs-ride="carousel">
+      <div id="carouselExampleInterval" [ngClass]="{'carousel slide col-md-12': _registroService.estaLogin()}" class="carousel slide col-md-8 col-12 mb-3 mb-md-0" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
+          <div class="carousel-item active" data-bs-interval="5000">
             <img src="assets/img/triom.png" class="d-block w-100" alt="...">
           </div>
-          <div class="carousel-item" data-bs-interval="2000">
+          <div class="carousel-item" data-bs-interval="5000">
             <img src="assets/img/trioc.png" class="d-block w-100" alt="...">
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" data-bs-interval="5000">
             <img src="assets/img/triow.png" class="d-block w-100" alt="...">
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+          data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+          data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
-        </button>
+        </button> -->
       </div>
 
       <!-- Caja de inicio de sesión -->
-      <div class="col-md-4 col-12">
+      <div class="col-md-4 col-12" *ngIf="!_registroService.estaLogin()">
         <app-inicio-sesion></app-inicio-sesion>
       </div>
     </div>
-  </div>
 
-  <div class="d-flex mt-5">
-    <div class=" cajitaTexto">
-      <h2 class="texto">Lo que veras aquí</h2>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos similique ipsa consectetur labore.
-        Assumenda nesciunt et quos dolore obcaecati nulla rerum quasi error! Deserunt ut nesciunt, soluta nihil
-        nobis cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim exercitationem culpa
-        quaerat. Cumque ipsa recusandae aliquid ea blanditiis laudantium unde ut amet odit iusto, voluptatum
-        minima magni reprehenderit possimus error. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Omnis, consequatur. Perferendis iste, accusantium hic reiciendis beatae aspernatur similique
-        consequuntur neque, quis tenetur doloribus deserunt totam? Eligendi neque maiores dolorem inventore!</p>
+    <!-- Caja de texto -->
+    <div class="d-flex mt-3">
+      <div class=" cajitaTexto">
+        <h2 class="texto">Lo que veras aquí</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos similique ipsa consectetur labore.
+          Assumenda nesciunt et quos dolore obcaecati nulla rerum quasi error! Deserunt ut nesciunt, soluta nihil
+          nobis cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim exercitationem culpa
+          quaerat. Cumque ipsa recusandae aliquid ea blanditiis laudantium unde ut amet odit iusto, voluptatum
+          minima magni reprehenderit possimus error. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Omnis, consequatur. Perferendis iste, accusantium hic reiciendis beatae aspernatur similique
+          consequuntur neque, quis tenetur doloribus deserunt totam? Eligendi neque maiores dolorem inventore!</p>
+      </div>
     </div>
+
   </div>
+</section>
