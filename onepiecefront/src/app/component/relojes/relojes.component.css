@@ -1,0 +1,11 @@
+.cajaZonaHoraria
+{
+  align-items: center;
+  background-color: aliceblue;
+  border-radius: 20px;
+  border: solid 1px black;
+  margin: 0 auto;
+  max-width: 800px;
+  opacity: 90%;
+  padding: 1rem 1rem;
+}

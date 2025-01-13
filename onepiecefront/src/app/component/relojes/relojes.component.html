@@ -1,0 +1,41 @@
+<div class="cajaZonaHoraria mt-3">
+
+    <div class="btn-add-TZ input-group mb-3">
+      <input [(ngModel)]="newTimezone" placeholder="Nueva zona horaria (Ej: America/Bogota)" class="form-control"/>
+      <button (click)="addTimezone()" type="button" class="btn btn-outline-info">Agregar</button>
+    </div>
+
+    <ng-container >
+      <ag-grid-angular
+      [class]="themeClass"
+      style="width: auto; height: 250px;"
+      [columnDefs]="colDefs"
+      [rowData]="timezones"
+      (cellClicked)="onCellClicked($event)"></ag-grid-angular>
+    </ng-container>
+
+
+</div>
+
+<!-- <div *ngFor="let timezone of timezones">
+  <h3>{{ timezone.name }}</h3>
+  <p>{{ currentTimes[timezone.name] }}</p>
+  <button (click)="removeTimezone(timezone._id)">Eliminar</button>
+</div> -->
+<!-- <input [(ngModel)]="newTimezone" placeholder="Nueva zona horaria (Ej: America/Bogota)" />
+<button (click)="addTimezone()">Agregar</button> -->
+
+<!-- <div>
+  <h1>Relojes Digitales!</h1>
+  <div>
+    <label for="datetime">Selecciona una Fecha y Hora (UTC):</label>
+    <input type="datetime-local" id="datetime" [(ngModel)]="selectedDate" (change)="onDateChange($event)" />
+  </div>
+  <div>
+    <ul>
+      <li *ngFor="let timezone of timezones">
+        <strong>{{ timezone.name }}:</strong> {{ currentTimes[timezone.name] || 'Cargando...' }}
+      </li>
+    </ul>
+  </div>
+</div> -->
