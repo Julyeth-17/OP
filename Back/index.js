@@ -8,11 +8,11 @@ app.use(cors())
 app.use(express.json());
 
 // requestHandler, configuracion visual para el dev, para que la api pueda comunicarse con el otro archivo para las rutas
-
-app.use ('/api/v1', require('./routes/routes'))
+app.use('/api/v1', require('./routes/routes'))
 
 // se define rutas o endpoints, se llama de las librerias el get.
-
 app.listen(3000, () => {
-    console.log('La aplicacion se esta ejecutando')
+  console.log('La aplicacion se esta ejecutando')
 })
+
+
