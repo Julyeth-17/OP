@@ -3,6 +3,7 @@ const Timezone = require("../models/Hora")
 exports.obtenerTodasLasZonasHorarias = async (req, res) => {
   const timezones = await Timezone.find();
   res.json(timezones);
+  console.log(timezones)
 }
 
 exports.agregarZonaHoraria = async (req, res) => {
