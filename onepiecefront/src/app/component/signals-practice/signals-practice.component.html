@@ -1,0 +1,38 @@
+<section class="bg-general-islaonepiece" style="background: url(assets/img/fondo.jpg);">
+
+  <h2>Practicing</h2>
+  <div class="mt-5 mb-5">
+    <!-- <h1>Profile for: {{userName()}}</h1>
+    <h1>Profile for: {{userNameReanOnly()}}</h1> -->
+    <h1>Profile for: {{user()}}</h1>
+    <h1> {{resultComputed()}}</h1>
+    <button type="button" (click)="changeUsername()">Change Username</button> |
+    <button type="button" (click)="onUpdateValue()">Update Username</button> |
+    <button type="button" (click)="changeUser()">Change User</button>
+
+    <h1 class="mt-4">El contador actual es: {{ stateService.counter() }}</h1>
+    <button (click)="stateService.incrementCounter()">Incrementar</button>
+  </div>
+
+  <button (click)="fetchData()"> Load Data </button>
+  <div *ngIf="loading()">Loading...</div>
+  <div *ngIf="data()">
+    <pre>{{ data | json}}</pre>
+  </div>
+
+  <div class="auth-section" *ngIf="stateService.isAuth()">
+    <div class="user-info">
+      <p>Welcome, {{ stateService.user().name }}</p>
+      <button (click)="stateService.logOut()">Logout</button>
+    </div>
+  </div>
+
+  <div class="auth-section" *ngIf="!stateService.isAuth()">
+    <button class="login-btn" (click)="stateService.setUser('Julieth')">Login</button>
+  </div>
+
+  <div class="cart-inputs">
+    <p></p>
+  </div>
+
+</section>

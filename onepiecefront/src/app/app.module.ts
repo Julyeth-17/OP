@@ -15,6 +15,7 @@ import { ListaUsuariosComponent } from './component/admin/lista-usuarios/lista-u
 import { PaginaErrorComponent } from './component/pagina-error/pagina-error.component';
 import { PerfilUsuarioComponent } from './component/perfil-usuario/perfil-usuario.component';
 import { RelojesComponent } from './component/relojes/relojes.component';
+import { SignalsPracticeComponent } from './component/signals-practice/signals-practice.component';
 import { AgGridAngular } from 'ag-grid-angular';
 
 @NgModule({ declarations: [
@@ -26,10 +27,11 @@ import { AgGridAngular } from 'ag-grid-angular';
         InicioSesionComponent,
         IngresoPersonajeComponent,
         ListaUsuariosComponent,
-        PaginaErrorComponent,
         PerfilUsuarioComponent,
-        RelojesComponent
-    ],
+        RelojesComponent,
+        SignalsPracticeComponent,
+        PaginaErrorComponent,
+      ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
         FormsModule,

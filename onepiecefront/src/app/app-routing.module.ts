@@ -8,11 +8,13 @@ import { PerfilUsuarioComponent } from './component/perfil-usuario/perfil-usuari
 import { ListaUsuariosComponent } from './component/admin/lista-usuarios/lista-usuarios.component';
 import { PaginaErrorComponent } from './component/pagina-error/pagina-error.component';
 import { autenticacionGuard } from './guards/autenticacion.guard';
+import { SignalsPracticeComponent } from './component/signals-practice/signals-practice.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'registro', component: RegistroComponent },
     // { path: 'inicio-sesion', component: InicioSesionComponent},
+    { path: 'signal-practice', component: SignalsPracticeComponent},
     { path: 'ingreso-personaje', component: IngresoPersonajeComponent}, //url que quiero poner
     { path: 'perfil-usuario', component: PerfilUsuarioComponent}, //
     { path: 'actualizar-personaje/:id', component: IngresoPersonajeComponent},
